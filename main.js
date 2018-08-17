@@ -1,5 +1,5 @@
 var end_point = "https://www.jsonstore.io/e343ab5903b8199873406d77f970e0e34dfba567170d2902afc63a79e66aefdf";
-
+var hash = getrandom();;
 function getrandom() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -20,16 +20,11 @@ function geturl(){
         }
 }
 
-function genhash(){
-    if (window.location.hash == ""){
-        window.location.hash = getrandom();
-    }
-}
 
 function send_request(url) {
     this.url = url;
     $.ajax({
-        'url': end_point + "/" + window.location.hash.substr(1),
+        'url': end_point + "/" + hash,
         'type': 'POST',
         'data': JSON.stringify(this.url),
         'dataType': 'json',
@@ -39,21 +34,15 @@ function send_request(url) {
 
 function shorturl(){
     var longurl = geturl();
-    genhash();
     send_request(longurl);
+    document.getElementById('id').text = window.location.href + '#' + hash;
 }
 
-
-
-
-
-var hashh = window.location.hash.substr(1)
-
 if (window.location.hash != "") {
-    $.getJSON(end_point + "/" + hashh, function (data) {
+    $.getJSON(end_point + "/" + window.location.hash.substr(1), function (data) {
         data = data["result"];
-
         if (data != null) {
+          console.log(data)
             window.location.href = data;
         }
 
