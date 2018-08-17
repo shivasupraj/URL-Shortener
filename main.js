@@ -1,5 +1,4 @@
-var end_point = "https://www.jsonstore.io/e343ab5903b8199873406d77f970e0e34dfba567170d2902afc63a79e66aefdf";
-
+var end_point = "https://www.jsonstore.io/461a1a6b80cc1c44fec94f407eb347d20f508770575f5e5c2f6f472ed4208006";
 console.log(window.location.href);
 pathname = window.location.href;
 path = pathname.split('/').pop();
