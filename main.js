@@ -1,8 +1,8 @@
 var end_point = "https://www.jsonstore.io/461a1a6b80cc1c44fec94f407eb347d20f508770575f5e5c2f6f472ed4208006";
 console.log(window.location.href);
 pathname = window.location.href;
-path = pathname.split('/').pop();
-path = path.split('#')[1];
+//path = pathname.split('/').pop();
+//path = path.split('#')[1];
 
 if (path !== "") {
     console.log(path)
