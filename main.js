@@ -1,5 +1,18 @@
 var end_point = "https://www.jsonstore.io/e343ab5903b8199873406d77f970e0e34dfba567170d2902afc63a79e66aefdf";
-var hash = getrandom();;
+
+console.log(window.location.href);
+if (window.location.hash != "") {
+    $.getJSON(end_point + "/" + window.location.hash.substr(1), function (data) {
+        data = data["result"];
+        if (data != null) {
+          console.log(data)
+            window.location.href = data;
+        }
+
+    });
+}
+
+var hash = getrandom();
 function getrandom() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -36,15 +49,4 @@ function shorturl(){
     var longurl = geturl();
     send_request(longurl);
     document.getElementById('id').text = window.location.href + '#' + hash;
-}
-
-if (window.location.hash != "") {
-    $.getJSON(end_point + "/" + window.location.hash.substr(1), function (data) {
-        data = data["result"];
-        if (data != null) {
-          console.log(data)
-            window.location.href = data;
-        }
-
-    });
 }
