@@ -1,5 +1,5 @@
 var end_point = "https://www.jsonstore.io/461a1a6b80cc1c44fec94f407eb347d20f508770575f5e5c2f6f472ed4208006";
-
+var hash;
 /***
 checks if the input bar is not empty
 and displays a message
@@ -21,7 +21,6 @@ if (path !== "") {
     $.getJSON(end_point + "/" + path, function (data) {
         data = data["result"];
         if (data != null) {
-            console.log(data)
             window.location.href = data;
         }
 
@@ -32,7 +31,7 @@ if (path !== "") {
 generates a random hash value
 to stored as a key in then JSON file
 ***/
-var hash = getrandom();
+
 function getrandom() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -56,6 +55,7 @@ function geturl(){
 
 function send_request(url) {
     this.url = url;
+    hash = getrandom();
     $.ajax({
         'url': end_point + "/" + hash,
         'type': 'POST',
