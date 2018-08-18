@@ -55,4 +55,5 @@ function shorturl(){
     send_request(longurl);
     document.getElementById('id').text = window.location.href + '#' + hash;
     document.getElementById('id').href = window.location.href + '#' + hash;
+    simplecopy(document.getElementById('id').text);
 }
