@@ -14,3 +14,4 @@ Just download the files and open the index.html.
 
 * [Bootstrap](https://getbootstrap.com/) 
 * [jQuery](https://jquery.com/)
+* [jsonstore.io](https://www.jsonstore.io/)
